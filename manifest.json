@@ -18,5 +18,10 @@
           "https://*/*"
         ]
       }
-    ]
+    ],
+
+    "web_accessible_resources": [{
+        "matches": ["https://*/*"],
+        "resources": ["images/image0.jpg"]
+    }]
   }
