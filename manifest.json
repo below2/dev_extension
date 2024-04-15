@@ -15,13 +15,13 @@
       {
         "js": ["scripts/content.js"],
         "matches": [
-          "https://*/*"
+          "http://*/*", "https://*/*"
         ]
       }
     ],
 
     "web_accessible_resources": [{
-        "matches": ["https://*/*"],
+        "matches": ["http://*/*", "https://*/*"],
         "resources": ["images/image0.jpg"]
     }]
   }
