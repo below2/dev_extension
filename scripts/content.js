@@ -6,16 +6,30 @@
 //   content.insertAdjacentElement("afterend", img);
 // }
 
-const textContent = document.body.innerHTML;
-const alteredArray = [];
-textContent.split(" ").forEach((word) => {
-  if (word.charAt(0).toLocaleLowerCase == 'b') {
-    word = "Brendan";
-    console.log("here");
-  }
-  alteredArray.push(word);
-});
-console.log(alteredArray);
-const alteredText = alteredArray.join(" ");
-document.body.innerHTML = alteredText
-console.log(alteredText);
+// let textContent = document.body.innerHTML;
+// console.log(document.body.innerText);
+// const arrTextContent = [];
+// textContent.split(" ").forEach((word) => {
+//     if (word.charAt(0).toLowerCase('en-US') === 'b') {
+//         word = "Brendan";
+//     }
+//   arrTextContent.push(word);
+// });
+// textContent = arrTextContent.join(" ");
+// document.body.innerHTML = textContent;
+
+const allEles = document.querySelectorAll(":not(script)");
+for (var i = 0; i < allEles.length; i++) {
+  console.log(allEles.item(i).innerHTML);
+  const eleInnerText = [];
+  allEles
+    .item(i)
+    .innerText.split(" ")
+    .forEach((word) => {
+      if (word.charAt(0).toLowerCase("en-US") === "b") {
+        word = "Brendan";
+      }
+      eleInnerText.push(word);
+    });
+  allEles.item(i).innerText = eleInnerText.join(" ");
+}
