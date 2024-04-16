@@ -22,6 +22,6 @@
 
     "web_accessible_resources": [{
         "matches": ["http://*/*", "https://*/*"],
-        "resources": ["images/image0.jpg"]
+        "resources": ["images/image0.jpg", "popup/popup.html"]
     }]
   }

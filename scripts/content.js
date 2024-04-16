@@ -1,35 +1,31 @@
-// const content = document.querySelector("p");
+const imageEles = document.querySelectorAll("img");
+imageEles.forEach((img) => {
+  img.src = chrome.runtime.getURL("images/image0.jpg");
+});
 
-// if (content) {
-//   const img = document.createElement("img");
-//   img.src = chrome.runtime.getURL("images/image0.jpg");
-//   content.insertAdjacentElement("afterend", img);
-// }
+function replaceWordsStartingWith(letter, replacement) {
+  const regex = new RegExp("\\b" + letter + "\\w*\\b", "gi");
 
-// let textContent = document.body.innerHTML;
-// console.log(document.body.innerText);
-// const arrTextContent = [];
-// textContent.split(" ").forEach((word) => {
-//     if (word.charAt(0).toLowerCase('en-US') === 'b') {
-//         word = "Brendan";
-//     }
-//   arrTextContent.push(word);
-// });
-// textContent = arrTextContent.join(" ");
-// document.body.innerHTML = textContent;
-
-const allEles = document.querySelectorAll(":not(script)");
-for (var i = 0; i < allEles.length; i++) {
-  console.log(allEles.item(i).innerHTML);
-  const eleInnerText = [];
-  allEles
-    .item(i)
-    .innerText.split(" ")
-    .forEach((word) => {
-      if (word.charAt(0).toLowerCase("en-US") === "b") {
-        word = "Brendan";
-      }
-      eleInnerText.push(word);
-    });
-  allEles.item(i).innerText = eleInnerText.join(" ");
+  function replaceText(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      node.textContent = node.textContent.replace(regex, replacement);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      node.childNodes.forEach(replaceText);
+    }
+  }
+  replaceText(document.body);
 }
+
+replaceWordsStartingWith("b", "Brendan");
+
+// Open a new popup window
+function openPopup(url, title, width, height) {
+  const left = (screen.width - width) / 2;
+  const top = (screen.height - height) / 2;
+  const options = `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width=${width}, height=${height}, top=${top}, left=${left}`;
+
+  window.open(url, title, options);
+}
+
+// Example usage:
+openPopup(chrome.runtime.getURL("popup/popup.html"), "Popup", 400, 300);
