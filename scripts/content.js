@@ -1,6 +1,8 @@
 const imageEles = document.querySelectorAll("img");
 imageEles.forEach((img) => {
-  img.src = chrome.runtime.getURL("images/image0.jpg");
+  img.src = chrome.runtime.getURL(
+    `images/image${Math.floor(Math.random() * 6)}.jpg`
+  );
 });
 
 function replaceWordsStartingWith(letter, replacement) {
@@ -18,14 +20,27 @@ function replaceWordsStartingWith(letter, replacement) {
 
 replaceWordsStartingWith("b", "Brendan");
 
-// Open a new popup window
-function openPopup(url, title, width, height) {
-  const left = (screen.width - width) / 2;
-  const top = (screen.height - height) / 2;
-  const options = `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width=${width}, height=${height}, top=${top}, left=${left}`;
-
-  window.open(url, title, options);
+function alertDevin() {
+  const alerts = [
+    "i am watching you",
+    "dont look behind you",
+    "i come from the walls",
+    "license",
+    "tandem read my ass",
+  ];
+  alert(alerts[Math.floor(Math.random() * alerts.length)]);
 }
 
-// Example usage:
-openPopup(chrome.runtime.getURL("popup/popup.html"), "Popup", 400, 300);
+while (true) {
+    setTimeout(alertDevin, Math.random() * (60000 - 30000) + 30000);
+}
+
+// function openPopup(url, title, width, height) {
+//   const left = (screen.width - width) / 2;
+//   const top = (screen.height - height) / 2;
+//   const options = `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width=${width}, height=${height}, top=${top}, left=${left}`;
+
+//   window.open(url, title, options);
+// }
+
+//openPopup(chrome.runtime.getURL("popup/popup.html"), "Popup", 400, 300);

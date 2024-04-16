@@ -1,27 +1,35 @@
 {
-    "manifest_version": 3,
-    "name": "dox devin",
-    "description": "extension made for dev thats basically a virus",
-    "version": "1.0",
+  "manifest_version": 3,
+  "name": "dox devin",
+  "description": "extension made for dev thats basically a virus",
+  "version": "1.0",
 
-    "icons": {
-      "16": "images/icon-16.png",
-      "32": "images/icon-32.png",
-      "48": "images/icon-48.png",
-      "128": "images/icon-128.png"
-    },
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
 
-    "content_scripts": [
-      {
-        "js": ["scripts/content.js"],
-        "matches": [
-          "http://*/*", "https://*/*"
-        ]
-      }
-    ],
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ],
 
-    "web_accessible_resources": [{
-        "matches": ["http://*/*", "https://*/*"],
-        "resources": ["images/image0.jpg", "popup/popup.html"]
-    }]
-  }
+  "web_accessible_resources": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "resources": [
+        "images/image0.jpg",
+        "images/image1.jpg",
+        "images/image2.jpg",
+        "images/image3.jpg",
+        "images/image4.jpg",
+        "images/image5.jpg",
+        "popup/popup.html"
+      ]
+    }
+  ]
+}
